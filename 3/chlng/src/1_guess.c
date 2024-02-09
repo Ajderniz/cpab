@@ -7,22 +7,22 @@
 int main(int argc, char* args[])
 {
 	int iRandN = 0;
-	int iResp = 0;
+	char cResp = '\0';
 
 	srand(time(0));
 
-	iRandN = (rand() % 10) + 1;
+	iRandN = (rand() % 10);
 
-	printf("Guess the gosh dang number: ");
-	scanf("%c", &iResp);
+	printf("Guess the gosh dang number (it's %d): ", iRandN);
+	scanf("%c", &cResp);
 
-	if (!isdigit(iResp)) {
+	if (!isdigit(cResp)) {
 		puts("That ain't no number I know of, sir.");
 		return 0;
 	} //end if
 
 	puts("You've... actually entered a number. How gullible.");
-	if (iRandN != iResp) {
+	if (iRandN != (cResp - '0')) {
 		puts("Still, the number you guessed wasn't the one. Tough luck.");
 		return 0;
 	} //end if
